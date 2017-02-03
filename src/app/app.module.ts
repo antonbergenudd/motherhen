@@ -1,37 +1,32 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { SongsPage } from '../pages/songs/songs';
+import { NgModule }               from '@angular/core';
+import { IonicApp, IonicModule }  from 'ionic-angular';
+import { MyApp }                  from './app.component';
+import { HttpModule }             from '@angular/http';
 
-// Import the AF2 Module
-import { AngularFireModule } from 'angularfire2';
+import { MapPage }               from '../pages/map/map';
+import { HomePage }               from '../pages/home/home';
+import { UsersPage }              from '../pages/users/users';
 
-// AF2 Settings
-export const firebaseConfig = {
-  apiKey: "AIzaSyAelHUeSJwRAxVXuggCM7ZgUu3F3wo1Odg",
-  authDomain: "motherhen-test.firebaseapp.com",
-  databaseURL: "https://motherhen-test.firebaseio.com",
-  storageBucket: "",
-  messagingSenderId: "199003432833"
-};
+import { UserService }            from './services/users.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    SongsPage
+    MapPage,
+    UsersPage,
+    HomePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    HttpModule
   ],
-  bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    SongsPage
+    MapPage,
+    UsersPage,
+    HomePage
   ],
-  providers: []
+  providers: [ UserService ],
+  bootstrap: [IonicApp]
 })
 export class AppModule {}
