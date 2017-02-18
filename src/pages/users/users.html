@@ -1,26 +1,34 @@
-<!--
-  Generated template for the Users page.
+<!-- Rename this ti GroupModal -->
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+
 <ion-header>
-  <ion-navbar>
-  	<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar primary>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
     <ion-title>
-      Users
+      {{ groupName }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-	<h1>Users</h1>
-	<ul>
-	  <li *ngFor="let user of users">
-	    {{user.name}}
-	  </li>
-	</ul>
+  <h1 padding>Users</h1>
+  <ion-list padding>
+    <ion-item ion-item *ngFor="let u of users">
+      {{u.name}}
+      <button ion-button (click)="inviteMember(u)">Invite</button>
+    </ion-item>
+  </ion-list>
+
+  <h1 padding>Members</h1>
+  <ion-list padding>
+    <ion-item ion-item *ngFor="let m of members">
+      {{m.name}}
+    </ion-item>
+  </ion-list>
 </ion-content>

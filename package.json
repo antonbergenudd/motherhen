@@ -28,7 +28,13 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.45",
-    "typescript": "2.0.6"
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.5.0",
+    "resolve-url-loader": "^1.6.1",
+    "sass-loader": "^5.0.1",
+    "style-loader": "^0.13.1",
+    "typescript": "2.0.6",
+    "url-loader": "^0.5.7"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Requests
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 padding>Requests</h1>
+  <ion-list padding>
+    <ion-item ion-item *ngFor="let req of requests">
+      <p>{{req.sender.name}} invited you to join the group <b>{{req.group.name}}</b></p>
+      <button ion-button (click)="acceptRequest(req.id)">Accept</button>
+      <button ion-button (click)="denyRequest(req.id)">Deny</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

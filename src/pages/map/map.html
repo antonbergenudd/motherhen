@@ -1,17 +1,57 @@
 <ion-header>
   <ion-navbar>
-  	<button ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
       Map
     </ion-title>
-    <ion-buttons end>
+    <ion-buttons end groupToggle>
+      <button ion-button (click)=toggleRequestMenu()>
+        <ion-icon name="ios-mail-outline"></ion-icon>
+      </button>
+      <button ion-button (click)=toggleGroupsMenu()>
+        <ion-icon name="ios-contacts"></ion-icon>
+      </button>
     </ion-buttons> 
   </ion-navbar>
 </ion-header>
  
-<ion-content>
+<ion-content #mapContent>
+  <button ion-button block class="main_button" (click)=setPosition()>Here</button>
   <div #map id="map"></div>
 </ion-content>
+
+<ion-menu side="right" [content]="mapContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Groups</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-item>
+      <ion-label floating>Group name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+      <button ion-button icon-only item-right (click)=addNewGroup(name)>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-list-header padding>Groups</ion-list-header>
+    <ion-list padding>
+      <ion-item-sliding #item>
+        <ion-item ion-item *ngFor="let g of groups">
+          <p (click)=toggleGroup(g) full>{{g.name}}</p>
+          <button ion-button item-right (click)=setActiveGroup(g)>
+            Active
+          </button>
+        </ion-item>
+        <!-- <ion-item-options side="right">
+          <button ion-button>delete</button>
+        </ion-item-options> -->
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
