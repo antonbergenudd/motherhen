@@ -13,8 +13,8 @@ export class RequestsPage {
 
   constructor(
   	public navCtrl: NavController,
-  	private userService: UserService, 
-  	private groupService: GroupService,
+  	public userService: UserService, 
+  	public groupService: GroupService,
   	public viewCtrl: ViewController
   ) {}
 
@@ -35,11 +35,11 @@ export class RequestsPage {
     this.viewCtrl.dismiss(RequestsPage);
   }
 
-  acceptRequest(id: number): void {
+  acceptRequest(id: number) {
     this.groupService.updateRequestStatus(id, 1);
   }
 
-  denyRequest(id: number): void {
+  denyRequest(id: number) {
     this.groupService.updateRequestStatus(id, 2);
   }
 

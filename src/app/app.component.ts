@@ -18,6 +18,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public menu: MenuController) {
     
+    console.log('test');
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Map', component: MapPage }
@@ -25,6 +26,8 @@ export class MyApp {
 
     platform.ready().then(() => {
       StatusBar.styleDefault();
+
+      console.log('Platform initiated');
     });
   }
 

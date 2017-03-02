@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import 'rxjs/add/operator/toPromise';
 
-import { User } from '../../assets/globals/user';
+import { User } from '../../../www/assets/globals/user';
 
 @Injectable()
 export class UserService {
@@ -12,6 +12,7 @@ export class UserService {
 
 	private usersUrl = 'http://52.56.46.145/api/v1/users';  // URL to web api
 	private headers = new Headers({'Content-Type': 'application/json'});
+
 
 	constructor(
 		private http: Http,

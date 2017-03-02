@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
-import { User } from '../../assets/globals/user';
+import { User } from '../../app/services/user';
 import { UserService } from '../../app/services/users.service';
 import { GroupService } from '../../app/services/groups.service';
 

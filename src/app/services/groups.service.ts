@@ -61,7 +61,7 @@ export class GroupService {
   }
 
   updateRequestStatus(request_id: number, status: number): Promise<any> {
-    return this.http.post('http://m-hen.dev/api/v1/requests/update/' + request_id, JSON.stringify({status: status}), {headers: this.headers})
+    return this.http.post('http://52.56.46.145/api/v1/requests/update/' + request_id, JSON.stringify({status: status}), {headers: this.headers})
       .toPromise()
       .then(response => response.json().data)
       .catch(this.handleError);

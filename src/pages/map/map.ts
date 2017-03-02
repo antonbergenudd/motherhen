@@ -7,10 +7,9 @@ import { GroupService } from '../../app/services/groups.service';
 
 import { UsersPage } from '../users/users';
 import { RequestsPage } from '../requests/requests';
-
  
 declare var google;
- 
+
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
@@ -24,6 +23,9 @@ export class MapPage {
   groups: any;
   positions: any;
   activeGroup: any;
+
+  // If not included, causes a bug in ionic build
+  name: any;
  
   constructor(
     public userService: UserService,
