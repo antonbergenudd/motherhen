@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import 'rxjs/add/operator/toPromise';
 
-import { User } from '../../../www/assets/globals/user';
+import { User } from './user';
 
 @Injectable()
 export class UserService {
@@ -16,7 +16,8 @@ export class UserService {
 
 	constructor(
 		private http: Http,
-		public storage: Storage
+		public storage: Storage,
+		public user: User
 	) {}
 
 	update(user: User): Promise<User> {
@@ -124,8 +125,8 @@ export class UserService {
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
-    
+
     return Promise.reject(error.message || error);
   }
-  
+
 }
