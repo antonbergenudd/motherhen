@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
 import { User } from '../../app/services/user';
 import { UserService } from '../../app/services/users.service';
@@ -17,8 +17,8 @@ export class UsersPage {
   groupId: number;
 
 	constructor(
-    private userService: UserService, 
-    private groupService: GroupService, 
+    private userService: UserService,
+    private groupService: GroupService,
     private navParams: NavParams,
     public viewCtrl: ViewController
   ) { }
@@ -37,7 +37,7 @@ export class UsersPage {
 
     this.userService.index()
       .then(users => {
-        // check if this.members exists in this.user, 
+        // check if this.members exists in this.user,
         // if so, remove member from this.user
         this.users = users;
       });

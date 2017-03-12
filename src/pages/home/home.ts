@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage';
 
-import { User } from '../../assets/globals/user'
 import { UserService } from '../../app/services/users.service';
 
 @Component({
@@ -11,7 +9,7 @@ import { UserService } from '../../app/services/users.service';
 export class HomePage {
  	username: string;
 
-  constructor(public userService: UserService) { 
+  constructor(public userService: UserService) {
   	this.userService.getUsername()
   }
 
@@ -26,5 +24,3 @@ export class HomePage {
   }
 
 }
-
-

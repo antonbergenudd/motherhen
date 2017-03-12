@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar, Splashscreen, } from 'ionic-native';
+import { StatusBar } from 'ionic-native';
 
 import { MapPage } from '../pages/map/map';
 import { HomePage } from '../pages/home/home';
@@ -11,25 +11,21 @@ import { LoginPage } from '../pages/login/login';
 })
 
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
-  pages: Array<{title: string, component: any}>;
+    rootPage: any = LoginPage;
+    pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public menu: MenuController) {
-    
-    console.log('test');
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Map', component: MapPage }
-    ];
+    constructor(public platform: Platform, public menu: MenuController) {
+        this.pages = [
+          { title: 'Home', component: HomePage },
+          { title: 'Map', component: MapPage }
+        ];
 
-    platform.ready().then(() => {
-      StatusBar.styleDefault();
-
-      console.log('Platform initiated');
-    });
-  }
+        platform.ready().then(() => {
+          StatusBar.styleDefault();
+        });
+    }
 
   openPage(page) {
     // close the menu when clicking a link from the menu

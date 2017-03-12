@@ -4,8 +4,6 @@ import { Storage } from '@ionic/storage';
 
 import 'rxjs/add/operator/toPromise';
 
-import { User } from './user';
-
 @Injectable()
 export class UserService {
 	id: any;
@@ -17,10 +15,9 @@ export class UserService {
 	constructor(
 		private http: Http,
 		public storage: Storage,
-		public user: User
 	) {}
 
-	update(user: User): Promise<User> {
+	update(user: any): Promise<any> {
 	  const url = `${this.usersUrl}/update/${user.id}`;
 	  return this.http
 	    .put(url, JSON.stringify(user), {headers: this.headers})
@@ -48,7 +45,7 @@ export class UserService {
 	//     .catch(this.handleError);
 	// }
 
-	create(user: User): Promise<User> {
+	create(user: any): Promise<any> {
 	  return this.http
 	    .post(this.usersUrl + '/store', JSON.stringify(user), {headers: this.headers})
 	    .toPromise()
@@ -56,17 +53,17 @@ export class UserService {
 	    .catch(this.handleError);
 	}
 
-  index(): Promise<User[]> {
+  index(): Promise<any[]> {
   	return this.http.get(this.usersUrl + '/index')
   		.toPromise()
-  		.then(response => response.json().users as User[])
+  		.then(response => response.json().users as any[])
   		.catch(this.handleError);
   }
 
-  show(id: number): Promise<User> {
+  show(id: number): Promise<any> {
   	return this.http.get(this.usersUrl + '/show/' + id)
   		.toPromise()
-  		.then(response => response.json().user as User)
+  		.then(response => response.json().user as any)
   		.catch(this.handleError);
   }
 

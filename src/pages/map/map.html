@@ -13,11 +13,11 @@
       <button ion-button (click)=toggleGroupsMenu()>
         <ion-icon name="ios-contacts"></ion-icon>
       </button>
-    </ion-buttons> 
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
- 
-<ion-content #mapContent>
+
+<ion-content #mapContent swipeBackEnabled="false">
   <button ion-button block class="main_button" (click)=setPosition()>Here</button>
   <div #map id="map"></div>
 </ion-content>
@@ -54,4 +54,3 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-
